@@ -1,3 +1,5 @@
+//throwaway file once sql files are finished
+
 let SweetPeppers = [
     {
         name: 'Bell Pepper',

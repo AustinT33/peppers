@@ -1,6 +1,6 @@
 import React from 'react';
 import {SweetPeppers} from '../Components/Data/Peppers'
-
+//replacing the import of data with server fetches
 
 function Sweet() {
     return (
