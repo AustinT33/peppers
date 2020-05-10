@@ -1,0 +1,10 @@
+.nav-title {
+    float: left;
+    padding-left: 2%;
+}
+
+.nav-li {
+    list-style-type: none;
+    float: right;
+    padding-right: 2%;
+}
