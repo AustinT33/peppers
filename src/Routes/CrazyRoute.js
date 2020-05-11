@@ -43,7 +43,7 @@ class Crazy extends React.Component {
                         <ul className="peppers-ul">
                             {peppers.map(pepper => (
                                 <li className="peppers-li" key={pepper.name}>
-                                    {pepper.name}<br/><img className="strain-img" alt={pepper.name} src={pepper.image}/>
+                                    <img className="strain-img" alt={pepper.name} src={pepper.image}/><br/>{pepper.name}
                                 </li>
                             ))}
                         </ul>

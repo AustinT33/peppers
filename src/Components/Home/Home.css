@@ -38,6 +38,7 @@ body {
     padding-inline-start: 0px;
 }
 
+
 .peppers-ul {
     display: inline-grid;
     grid-template-columns: auto auto auto auto;
