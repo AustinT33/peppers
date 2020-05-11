@@ -31,23 +31,29 @@ body {
 }
 
 .strain-img {
-    width: 50%;
+    width: 75%;
 }
 
 .peppers-li {
     list-style-type: none;
     font-size: 18px;
+    position: relative;
+    text-align: center;
 }
 
 .pepper-title {
-    text-align: center;
-    font-size: 30px;
-    margin-top: 3%;
+    position: absolute;
+    font-size: 24px;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .peppers-ul {
     display: inline-grid;
     grid-template-columns: auto auto auto auto;
+    margin-top: 5%;
 }
 
 .back-arrow {
