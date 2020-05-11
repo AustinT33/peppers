@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Config from '../Config'
+import Back from '../Pictures/back-arrow.png'
 
 class Hot extends React.Component {
     constructor(){
@@ -39,7 +40,10 @@ class Hot extends React.Component {
         } else {
             return (
                 <div className="container">
-                <h2 className="pepper-title">Hot Peppers</h2>
+                <div className="title-container">
+                    <Link className="back" to="/"><img className="back-arrow" src={Back} alt="back"/></Link>
+                    <h2 className="pepper-title">Hot Peppers</h2>
+                </div>
                     <div className="pepper-container">
                         <ul className="peppers-ul">
                             {peppers.map(pepper => (
@@ -49,7 +53,6 @@ class Hot extends React.Component {
                             ))}
                         </ul>
                     </div>
-                <Link className="back" to="/">Back</Link>
                 </div>
             );
         }
