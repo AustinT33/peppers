@@ -1,5 +1,6 @@
 import React from 'react';
 import Config from '../Config'
+import { Link } from 'react-router-dom';
 
 class Sweet extends React.Component {
     constructor(){
@@ -48,6 +49,7 @@ class Sweet extends React.Component {
                             ))}
                         </ul>
                     </div>
+                <Link className="back" to="/">Back</Link>
                 </div>
             );
         }

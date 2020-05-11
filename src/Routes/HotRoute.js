@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Config from '../Config'
 
 class Hot extends React.Component {
@@ -48,6 +49,7 @@ class Hot extends React.Component {
                             ))}
                         </ul>
                     </div>
+                <Link className="back" to="/">Back</Link>
                 </div>
             );
         }
