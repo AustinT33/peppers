@@ -1,4 +1,5 @@
 import React from 'react';
+import CropLogo from '../../Pictures/gwf-logo-crop.jpg'
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 
 import SweetRoute from '../../Routes/SweetRoute';
@@ -12,6 +13,7 @@ function Home() {
         <BrowserRouter>
             <div className="home-container">
                 <div className='title-container'>
+                    <img className="logo-cropped" src={CropLogo} alt='gwf-logo'/>
                     <h1 className="title">Welcome to Green Wolf Forest</h1>
                     <div className="bio">I'm a small garden hobbyist crazy about peppers, but I have an issue, I can't handle the heat so I have tons of hot peppers to share! I grow peppers of all kinds, all plants and produce are completely organic and naturally grown. If you're crazy about peppers like myself, scroll on down!</div>
                 </div>
