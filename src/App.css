@@ -34,6 +34,11 @@ body {
   width: 100%;
 }
 
+.pepper-header {
+    text-align: center;
+    font-size: 30px;
+}
+
 .peppers-li {
   list-style-type: none;
   font-size: 18px;

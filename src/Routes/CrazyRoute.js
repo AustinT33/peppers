@@ -42,7 +42,7 @@ class Crazy extends React.Component {
                 <div className="container">
                 <div className="title-container">
                     <Link className="back" to="/"><img className="back-arrow" src={Back} alt="back"/></Link>
-                    <h2 className="pepper-title">Crazy Hot Peppers</h2>
+                    <h2 className="pepper-header">Crazy Hot Peppers</h2>
                 </div>
                     <div className="pepper-container">
                         <ul className="peppers-ul">

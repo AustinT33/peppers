@@ -42,7 +42,7 @@ class Sweet extends React.Component {
                 <div className="container">
                 <div className="title-container">
                     <Link className="back" to="/"><img className="back-arrow" src={Back} alt="back"/></Link>
-                    <h2 className="pepper-title">Sweet Peppers</h2>
+                    <h2 className="pepper-header">Sweet Peppers</h2>
                 </div>
                     <div className="pepper-container">
                         <ul className="peppers-ul">
