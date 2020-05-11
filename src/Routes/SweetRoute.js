@@ -1,6 +1,5 @@
 import React from 'react';
 import Config from '../Config'
-//having issues getting pictures to fetch properly with the data
 
 class Sweet extends React.Component {
     constructor(){
