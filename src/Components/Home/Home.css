@@ -32,6 +32,10 @@ body {
 
 .peppers-li {
     list-style-type: none;
+    font-size: 18px;
+    padding: 4px;
+    margin-left: -2.5%;
+    padding-inline-start: 0px;
 }
 
 .bell-pepper-container {

@@ -1,34 +1,58 @@
 import React from 'react';
-import PurpleBell from '../Pictures/purple-bell.JPG'
+import Config from '../Config'
+//having issues getting pictures to fetch properly with the data
 
-function Hot() {
-    return (
-        <div className="container">
-            <h2 className="pepper-title">Hot Peppers</h2>
-            <div className="pepper-container">
-                <ul className="pepper-ul">
-                    <li className="pepper-li">
-                        <img className="pepper-img" alt='purple-bell' src={PurpleBell}/>
-                        <div className="strain-text">Hatch Chili</div>
-                    </li>
-                    <li className="pepper-li">
-                        <img className="pepper-img" alt='purple-bell' src={PurpleBell}/>
-                        <div className="strain-text">Jalapeno</div>
-                    </li>
-                    <li className="pepper-li">
-                        <img className="pepper-img" alt='purple-bell' src={PurpleBell}/>
-                        <div className="strain-text">Maule's Red Cayenne</div>
-                    </li>
-                    <li className="pepper-li">
-                        <img className="pepper-img" alt='purple-bell' src={PurpleBell}/>
-                        <div className="strain-text">Orange Habanero</div>
-                    </li>
-                </ul>
-            </div>
-            {/* <div className="seeds">Seeds</div>
-            <div className="pods">Dried Pods</div> */}
-        </div>
-    )
+class Hot extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            error: null,
+            peppers:[],
+            isLoaded: false,
+        }
+    }
+
+    componentDidMount(){
+        fetch(`${Config.API_ENDPOINT}/hot_peppers`)
+            .then(res => res.json())
+            .then(
+                (data) => {
+                    this.setState({
+                        isLoaded: true,
+                        peppers: data
+                    });
+                },
+                (error) => {
+                    this.setState({
+                        error
+                    });
+                }
+            )
+    }
+
+    render() {
+        const { error, isLoaded, peppers } = this.state;
+        if (error) {
+            return <div className="error">{error.message}</div>;
+        } else if (!isLoaded) {
+            return <div className="loading">Loading...</div>;
+        } else {
+            return (
+                <div className="container">
+                <h2 className="pepper-title">Hot Peppers</h2>
+                    <div className="pepper-container">
+                        <ul className="peppers-ul">
+                            {peppers.map(pepper => (
+                                <li className="peppers-li" key={pepper.name}>
+                                    {pepper.name} <img className="pepper-img" alt="(fix meee)" src={pepper.image}/>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            );
+        }
+    }
 }
 
 export default Hot

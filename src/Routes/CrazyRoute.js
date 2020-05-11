@@ -1,30 +1,58 @@
 import React from 'react';
-import ButchTrinScorp from '../Pictures/butch-t-trin-scorp.jpg'
+import Config from '../Config'
+//having issues getting pictures to fetch properly with the data
 
-function Crazy() {
-    return (
-        <div className="container">
-            <h2 className="pepper-title">Crazy Hot Peppers</h2>
-            <div className="pepper-container">
-                <ul className="pepper-ul">
-                    <li className="pepper-li">
-                        <img className="pepper-img" alt='Butch-t-trinidad-scorpion' src={ButchTrinScorp}/>
-                        <div className="strain-text">Butch T. Trinidad Scorpion</div>
-                    </li>
-                    <li className="pepper-li">
-                        <img className="pepper-img" alt='purple-bell' src={ButchTrinScorp}/>
-                        <div className="strain-text">Caribbean Red Habanero</div>
-                    </li>
-                    <li className="pepper-li">
-                        <img className="pepper-img" alt='purple-bell' src={ButchTrinScorp}/>
-                        <div className="strain-text">Firecracker</div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    )
+class Crazy extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            error: null,
+            peppers:[],
+            isLoaded: false,
+        }
+    }
+
+    componentDidMount(){
+        fetch(`${Config.API_ENDPOINT}/crazy_peppers`)
+            .then(res => res.json())
+            .then(
+                (data) => {
+                    this.setState({
+                        isLoaded: true,
+                        peppers: data
+                    });
+                },
+                (error) => {
+                    this.setState({
+                        error
+                    });
+                }
+            )
+    }
+
+    render() {
+        const { error, isLoaded, peppers } = this.state;
+        if (error) {
+            return <div className="error">{error.message}</div>;
+        } else if (!isLoaded) {
+            return <div className="loading">Loading...</div>;
+        } else {
+            return (
+                <div className="container">
+                <h2 className="pepper-title">Crazy Hot Peppers</h2>
+                    <div className="pepper-container">
+                        <ul className="peppers-ul">
+                            {peppers.map(pepper => (
+                                <li className="peppers-li" key={pepper.name}>
+                                    {pepper.name} <img className="pepper-img" alt="(fix meee)" src={pepper.image}/>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            );
+        }
+    }
 }
 
 export default Crazy
-            {/* <div className="seeds">Seeds</div>
-            <div className="pods">Dried Pods</div> */}

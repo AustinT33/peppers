@@ -1,20 +1,58 @@
 import React from 'react';
-import {SweetPeppers} from '../Components/Data/Peppers'
-//replacing the import of data with server fetches
+import Config from '../Config'
+//having issues getting pictures to fetch properly with the data
 
-function Sweet() {
-    return (
-        <div className="container">
-            <h2 className="pepper-title">Sweet Peppers</h2>
-            <div className="pepper-container">
-                <ul className="pepper-ul">
-                    {SweetPeppers.map(function(p, idx){
-                        return(<li className="peppers-li" key={idx}><div className="strain-text">{p.name}</div>{p.image}</li>)
-                    })}
-                </ul>
-            </div>
-        </div>
-    )
+class Sweet extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            error: null,
+            peppers:[],
+            isLoaded: false,
+        }
+    }
+
+    componentDidMount(){
+        fetch(`${Config.API_ENDPOINT}/sweet_peppers`)
+            .then(res => res.json())
+            .then(
+                (data) => {
+                    this.setState({
+                        isLoaded: true,
+                        peppers: data
+                    });
+                },
+                (error) => {
+                    this.setState({
+                        error
+                    });
+                }
+            )
+    }
+
+    render() {
+        const { error, isLoaded, peppers } = this.state;
+        if (error) {
+            return <div className="error">{error.message}</div>;
+        } else if (!isLoaded) {
+            return <div className="loading">Loading...</div>;
+        } else {
+            return (
+                <div className="container">
+                <h2 className="pepper-title">Sweet Peppers</h2>
+                    <div className="pepper-container">
+                        <ul className="peppers-ul">
+                            {peppers.map(pepper => (
+                                <li className="peppers-li" key={pepper.name}>
+                                    {pepper.name} <img className="pepper-img" alt="(fix meee)" src={pepper.image}/>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            );
+        }
+    }
 }
 
 export default Sweet
