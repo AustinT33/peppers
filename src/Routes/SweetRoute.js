@@ -48,7 +48,7 @@ class Sweet extends React.Component {
                         <ul className="peppers-ul">
                             {peppers.map(pepper => (
                                 <li className="peppers-li" key={pepper.name}>
-                                    <img className="strain-img" alt={pepper.name} src={pepper.image}/><br/><div className="pepper-title">{pepper.name}</div>
+                                    <img className="strain-img" alt={pepper.name} src={pepper.image}/><br/><div className="pepper-title">{pepper.name}<br/><Link className="view" to="test">View</Link></div>
                                 </li>
                             ))}
                         </ul>

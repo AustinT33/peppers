@@ -47,11 +47,10 @@ class App extends Component {
               <NavBar />
               <Link to="/"><img className="logo-cropped" src={CropLogo} alt='gwf-logo'/></Link>
               <Route exact path="/"><Home /></Route>
-              <Link to="/main-view" className="test">Test Page</Link>
             </header>
           </div>
             <Switch>
-              <Route path="/main-view">
+              <Route path="/test">
                 <MainView peppers={this.state.peppers}/>
               </Route>
               <Route path="/peppers-sweet">
