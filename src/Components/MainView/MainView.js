@@ -5,6 +5,7 @@ import './MainView.css';
 
 function MainView(props) {
     return (
+        //this MainView Component is only available in Sweet Peppers-----------
         <div className="main-view-container">
             <Link className="back2" to="/peppers-sweet"><img className="back-arrow2" src={Back} alt="back"/></Link>
             <h2 className="main-view-title">Bell Pepper</h2>
