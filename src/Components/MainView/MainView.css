@@ -23,6 +23,20 @@
     padding-left: 13%;
 }
 
+.main-view-title {
+    font-size: 30px;
+}
+
 .hide {
     display: none;
 }
+
+/* any ideas to match this to the arrow in categories? displaying to the left of the title */
+.back-arrow2 {
+    margin-left: -45%;
+    margin-top: -1%;
+    float: left;
+    position: absolute;
+    width: 5%;
+    cursor: pointer;
+  }
