@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
+import Config from './Config'
 import SweetRoute from './Routes/SweetRoute';
 import HotRoute from './Routes/HotRoute';
 import CrazyRoute from './Routes/CrazyRoute';
@@ -8,8 +9,36 @@ import CropLogo from './Pictures/gwf-logo-crop.jpg'
 import NavBar from './Components/NavBar/NavBar';
 import Home from './Components/Home/Home';
 import './App.css';
+import MainView from './Components/MainView/MainView';
 
 class App extends Component {
+    constructor(){
+      super();
+      this.state = {
+          error: null,
+          peppers:[],
+          isLoaded: false,
+      }
+  }
+
+      componentDidMount(){
+        fetch(`${Config.API_ENDPOINT}/peppers`)
+            .then(res => res.json())
+            .then(
+                (data) => {
+                    this.setState({
+                        isLoaded: true,
+                        peppers: data
+                    });
+                },
+                (error) => {
+                    this.setState({
+                        error
+                    });
+                }
+            )
+    }
+
   render() {
     return (
       <BrowserRouter>
@@ -18,9 +47,13 @@ class App extends Component {
               <NavBar />
               <Link to="/"><img className="logo-cropped" src={CropLogo} alt='gwf-logo'/></Link>
               <Route exact path="/"><Home /></Route>
+              <Link to="/main-view" className="test">Test Page</Link>
             </header>
           </div>
             <Switch>
+              <Route path="/main-view">
+                <MainView peppers={this.state.peppers}/>
+              </Route>
               <Route path="/peppers-sweet">
                   <SweetRoute />
               </Route>
