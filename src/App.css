@@ -78,3 +78,12 @@ body {
   width: 5%;
   cursor: pointer;
 }
+
+.view-opts {
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    cursor: pointer;
+}

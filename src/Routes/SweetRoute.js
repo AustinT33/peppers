@@ -70,17 +70,6 @@ class Sweet extends React.Component {
               Sweet Peppers
             </h2>
           </div>
-          <Modal
-            buttonText={
-              'see inside the modal'
-            }
-            modalId={'modal-1'}
-            render={() => (
-              <div>
-                this is inside the modal
-              </div>
-            )}
-          ></Modal>
           <div className="pepper-container">
             <ul className="peppers-ul">
               {peppers.map((pepper) => (
@@ -97,12 +86,25 @@ class Sweet extends React.Component {
                   <div className="pepper-title">
                     {pepper.name}
                     <br />
-                    <Link
-                      className="view"
-                      to="test"
-                    >
-                      View
-                    </Link>
+                    <div className="view-opts">
+                        <Modal
+                            buttonText={
+                            'Quick View'
+                            }
+                            modalId={'modal-1'}
+                            render={() => (
+                            <div>
+                                Quick View Modal
+                            </div>
+                            )}
+                        ></Modal>
+                        <Link
+                        className="view"
+                        to="test"
+                        >
+                        View
+                        </Link>
+                    </div>
                   </div>
                 </li>
               ))}
