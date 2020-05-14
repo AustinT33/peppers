@@ -87,23 +87,26 @@ class Sweet extends React.Component {
                     {pepper.name}
                     <br />
                     <div className="view-opts">
-                        <Modal
-                            buttonText={
-                            'Quick View'
-                            }
-                            modalId={'modal-1'}
-                            render={() => (
-                            <div>
-                                Quick View Modal
-                            </div>
-                            )}
-                        ></Modal>
-                        <Link
+                      <Modal
+                        buttonText={
+                          'Quick View'
+                        }
+                        modalId={
+                          pepper.id
+                        }
+                        render={() => (
+                          <>
+                            Quick View
+                            Modal
+                          </>
+                        )}
+                      ></Modal>
+                      <Link
                         className="view"
                         to="test"
-                        >
+                      >
                         View
-                        </Link>
+                      </Link>
                     </div>
                   </div>
                 </li>
