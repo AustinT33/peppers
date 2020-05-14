@@ -1,5 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM, {
+  createPortal,
+} from 'react-dom';
 import { X } from './ui-components.js';
 import cuid from 'cuid';
 class Modal extends React.Component {
@@ -45,7 +47,7 @@ class Modal extends React.Component {
             {buttonText}
           </button>
         ) : null}{' '}
-        {app_root
+        {this.state.open
           ? ReactDOM.createPortal(
               <div
                 style={
@@ -64,7 +66,20 @@ class Modal extends React.Component {
                       }
                     : null
                 }
-              >
+                onClick={(e) => {
+                  e.stopPropagation();
+                  this.toggleModal();
+                  document.getElementById(
+                    modalId
+                  ).style.height = '0';
+                }}
+              ></div>,
+              app_root
+            )
+          : null}
+        {app_root
+          ? ReactDOM.createPortal(
+              <>
                 <div
                   style={{
                     position: 'fixed',
@@ -73,12 +88,17 @@ class Modal extends React.Component {
                     justifyContent:
                       'center',
                     width: '100%',
+                    pointerEvents:
+                      'none',
+                    zIndex: 3,
                   }}
                 >
                   <div
                     id={modalId}
                     style={{
                       zIndex: 3,
+                      pointerEvents:
+                        'auto',
                       width: '70vw',
                       minWidth: '280px',
                       margin: '0 auto',
@@ -113,7 +133,7 @@ class Modal extends React.Component {
                       : null}{' '}
                   </div>
                 </div>
-              </div>,
+              </>,
               app_root
             )
           : null}
