@@ -38,6 +38,38 @@ body {
   width: 100%;
 }
 
+.quick-view-img {
+    width: 30%;
+    position: absolute;
+    padding-top: 4%;
+    padding-left: 1%;
+}
+
+.quick-view-name, .quick-view-description {
+    text-align: right;
+    padding-top: 3%;
+}
+
+.quick-view-name {
+    font-size: 26px;
+    padding-right: 13%;
+}
+
+.quick-view-description {
+    font-size: 22px;
+    padding-top: 5%;
+    line-height: 2rem;
+    padding-left: 60%;
+    padding-right: 9%;
+    text-align: center;
+}
+
+.future-link {
+    margin-top: 2.5%;
+    float: right;
+    margin-right: 10.5%;
+}
+
 .pepper-header {
   text-align: center;
   font-size: 30px;

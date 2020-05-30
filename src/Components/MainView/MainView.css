@@ -40,3 +40,9 @@
     width: 5%;
     cursor: pointer;
   }
+
+  .selected-pepper-img {
+      width: 30%;
+      float: left;
+      margin-left: 20%;
+  }

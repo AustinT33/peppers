@@ -10,6 +10,7 @@ class Sweet extends React.Component {
     this.state = {
       error: null,
       peppers: [],
+      specificPepper:[],
       isLoaded: false,
     };
   }
@@ -33,6 +34,25 @@ class Sweet extends React.Component {
         }
       );
   }
+
+//     fetchId() {
+//         fetch(
+//         `${Config.API_ENDPOINT}/peppers/${id}`
+//         )
+//         .then((res) => res.json())
+//         .then(
+//             (pepId) => {
+//             this.setState({
+//                 specificPepper: pepId,
+//             });
+//             },
+//             (error) => {
+//             this.setState({
+//                 error,
+//             });
+//             }
+//         )
+//   }
 
   render() {
     const {
@@ -96,12 +116,21 @@ class Sweet extends React.Component {
                         }
                         render={() => (
                           <>
-                            Quick View
-                            Modal
+                            <img
+                                className="quick-view-img"
+                                alt={pepper.name}
+                                src={pepper.image}
+                            />
+                            <div className="quick-view-name">{pepper.name}</div>
+                            <div className="quick-view-description">{pepper.description}</div>
+                            <button className="future-link">View More Button(takes you to main view)</button>
                           </>
                         )}
                       ></Modal>
                       <Link
+                        onClick={
+                            ()=>console.log(pepper.id)
+                        }
                         className="view"
                         to="test"
                       >
