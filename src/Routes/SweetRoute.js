@@ -10,7 +10,6 @@ class Sweet extends React.Component {
     this.state = {
       error: null,
       peppers: [],
-      specificPepper:[],
       isLoaded: false,
     };
   }
@@ -34,25 +33,6 @@ class Sweet extends React.Component {
         }
       );
   }
-
-//     fetchId() {
-//         fetch(
-//         `${Config.API_ENDPOINT}/peppers/${id}`
-//         )
-//         .then((res) => res.json())
-//         .then(
-//             (pepId) => {
-//             this.setState({
-//                 specificPepper: pepId,
-//             });
-//             },
-//             (error) => {
-//             this.setState({
-//                 error,
-//             });
-//             }
-//         )
-//   }
 
   render() {
     const {
@@ -128,11 +108,9 @@ class Sweet extends React.Component {
                         )}
                       ></Modal>
                       <Link
-                        onClick={
-                            ()=>console.log(pepper.id)
-                        }
+                        onClick={() => console.log(pepper.id)}
                         className="view"
-                        to="test"
+                        to="/test"
                       >
                         View
                       </Link>

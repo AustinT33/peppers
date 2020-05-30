@@ -1,69 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import Back from '../../Pictures/back-arrow.png';
-import Config from '../../Config';
 import './MainView.css';
 
-class MainView extends React.Component {
-    constructor(props) {
-        super();
-        this.state={
-            isLoaded: false,
-            peppers: [],
-            error: null,
-        }
-    }
-
-    componentDidMount() {
-    fetch(
-      `${Config.API_ENDPOINT}/peppers`
-    )
-      .then((res) => res.json())
-      .then(
-        (data) => {
-          this.setState({
-            isLoaded: true,
-            peppers: data,
-          });
-        },
-        (error) => {
-          this.setState({
-            error,
-          });
-        }
-      );
-    }
-
-    render() {
-        const {
-            error,
-            isLoaded,
-            peppers,
-            } = this.state;
-            if (error) {
-            return (
-                <div className="error">
-                {error.message}
-                </div>
-            );
-            } else if (!isLoaded) {
-            return (
-                <div className="loading">
-                Loading...
-                </div>
-            );
-            } else {
+function MainView(props) {
         return (
             //this MainView Component is only available in Sweet Peppers-----------
             <div className="main-view-container">
                 <Link className="back2" to="/peppers-sweet"><img className="back-arrow2" src={Back} alt="back"/></Link>
                 <div>
-                    {peppers.filter(pepper => pepper.id === 4).map(pepperId => (
-                        <h2 className="main-view-title">{pepperId.name}</h2>
+                    {props.peppers.filter(pepper => pepper.id === 4).map(pepperId => (
+                        <h2 key={pepperId}className="main-view-title">{pepperId.name}</h2>
                     ))}
                     </div>
-                {/* <h2 className="main-view-title">{peppers.name}</h2>
-                <img
+                {/* <h2 className="main-view-title">{props.pepper}</h2> */}
+                {/* <img
                     className="selected-pepper-img"
                     alt={peppers.name}
                     src={peppers.image}
@@ -84,7 +35,8 @@ class MainView extends React.Component {
             </div>
             )
         }
-    }
-}
+//     }
+// }
+
 
 export default MainView
