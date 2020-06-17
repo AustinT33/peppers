@@ -1,9 +1,19 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
+import './Login.css'
 
 function Login() {
     return(
         <div className="login-container">
-            <h3>Hello</h3>
+            <h2 className="login-header">Login</h2>
+            <div className="input-container">
+                <input className="username" placeholder="Username"/>
+                <input className="password" placeholder="Password"/>
+            </div>
+            <div className="other-options">
+                <Link className="back-to-home-link">Back to Home</Link>
+                <Link className="create-account">Create Account</Link>
+            </div>
         </div>
     )
 }
