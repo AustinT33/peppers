@@ -11,8 +11,8 @@ function Login() {
                 <input className="password" placeholder="Password"/>
             </div>
             <div className="other-options">
-                <Link className="back-to-home-link">Back to Home</Link>
-                <Link className="create-account">Create Account</Link>
+                <Link to="/" className="back-to-home-link">Back to Home</Link>
+                <Link to="/create-account" className="create-account">Create Account</Link>
             </div>
         </div>
     )
