@@ -19,6 +19,7 @@ import NavBar from './Components/NavBar/NavBar';
 import Home from './Components/Home/Home';
 import './App.css';
 import MainView from './Components/MainView/MainView';
+import Login from './Components/Login/Login'
 library.add(faTimes);
 class App extends Component {
   constructor() {
@@ -87,6 +88,9 @@ class App extends Component {
           </Route>
           <Route path="/peppers-hybrid">
             <HybridRoute />
+          </Route>
+          <Route path="/gwf-login">
+            <Login />
           </Route>
         </Switch>
       </BrowserRouter>
